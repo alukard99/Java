@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-nov-2021 11:35:59 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="modelo.Recibo" optimistic-lock="version" schema="AD_TEMA_03_RECIBOS" table="RECIBO">
+    <composite-id class="modelo.ReciboId" name="id">
+      <key-property name="NPrestamo" type="big_decimal">
+        <column name="N_PRESTAMO" precision="10" scale="6"/>
+      </key-property>
+      <key-property name="NRecibo" type="long">
+        <column name="N_RECIBO" precision="10" scale="0"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="modelo.Prestamo" fetch="select" insert="false" name="prestamo" update="false">
+      <column name="N_PRESTAMO" not-null="true" precision="10" scale="6"/>
+    </many-to-one>
+    <property name="fecha" type="date">
+      <column length="7" name="FECHA"/>
+    </property>
+    <property name="importe" type="big_decimal">
+      <column name="IMPORTE" not-null="true" precision="10"/>
+    </property>
+    <property name="fechaPagado" type="date">
+      <column length="7" name="FECHA_PAGADO"/>
+    </property>
+  </class>
+</hibernate-mapping>

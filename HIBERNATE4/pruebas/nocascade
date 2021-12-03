@@ -1,0 +1,12 @@
+Nombre persona: Alex
+Libros: 2
+Datos de la Base de datos:
+Persona :Persona{nombre=Alex}
+Número de libros: 0
+
+
+Nombre persona: Alex
+Libros: 2
+Datos de la Base de datos:
+Persona :Persona{nombre=Alex}
+Número de libros: 2

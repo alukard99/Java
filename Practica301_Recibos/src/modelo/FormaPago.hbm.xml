@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-nov-2021 11:35:59 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="modelo.FormaPago" optimistic-lock="version" schema="AD_TEMA_03_RECIBOS" table="FORMA_PAGO">
+    <id name="codigo" type="string">
+      <column length="3" name="CODIGO"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="descripcion" type="string">
+      <column length="100" name="DESCRIPCION" not-null="true"/>
+    </property>
+    <property name="NRecibo" type="short">
+      <column name="N_RECIBO" not-null="true" precision="3" scale="0"/>
+    </property>
+    <property name="interes" type="big_decimal">
+      <column name="INTERES" not-null="true" precision="5"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="prestamos" table="PRESTAMO">
+      <key>
+        <column length="3" name="CODIGO_FORMA_PAGO" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.Prestamo"/>
+    </set>
+  </class>
+</hibernate-mapping>
